@@ -5,7 +5,7 @@ import tweepy, time, sys, datetime, json
 
 
 # Tokens are generated at https://apps.twitter.com/
-with open('config.json') as cf:
+with open('/root/temp-rrd/config.json') as cf:
     config = json.load(cf)
  
 #enter the corresponding information from your Twitter application:

@@ -9,10 +9,12 @@ with open('/root/temp-rrd/config.json') as cf:
     config = json.load(cf)
 
 slack = slacker.Slacker(config['slack_api_key'])
+
+filename = sys.argv[1]
  
-message = "Temperature as of %s" % '{:%Y-%m-%d %H:%M:%S}'.format(datetime.datetime.now())
+message = "Temperature as of %s \n %s" % ('{:%Y-%m-%d %H:%M:%S}'.format(datetime.datetime.now()), filename)
  
-response = slack.files.upload("/home/evan/temperature_1h.png", title=message, channels='#eh_tempbot')
+response = slack.files.upload(filename, title=message, channels='#eh_tempbot')
 
 print response
 

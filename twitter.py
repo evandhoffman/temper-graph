@@ -15,5 +15,5 @@ api = tweepy.API(auth)
 
 message = "Temperature as of %s" % '{:%Y-%m-%d %H:%M:%S}'.format(datetime.datetime.now())
  
-api.update_with_media("/home/evan/temperature_6h.png", message)
+api.update_with_media("/home/evan/temperature_3h.png", message)
 

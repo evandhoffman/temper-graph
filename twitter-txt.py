@@ -17,8 +17,12 @@ cmd = 'rrdtool lastupdate /home/evan/temp.rrd | tail -1'
 rrdtemp = commands.getstatusoutput(cmd)
 
 t = rrdtemp[1].split(': ')
-temp = "Temp at %s: %s degrees F" % (time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(int(t[0]))), t[1])
+temp = "%s F" % (t[1])
 
-api.update_status(status=temp)
+try:
+	result = api.update_status(status=temp)
+	print result
+except tweepy.TweepError as e:
+	print "%s - %s" % (temp, e.message[0])
 #api.update_with_media("/home/evan/temperature_3h.png", message)
 

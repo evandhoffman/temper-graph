@@ -9,6 +9,7 @@ COLOR_MAX="#ff0000cc"
 for i in 1h 3h 6h 12h 24h 3d 7d ; do
 
 rrdtool graph /home/evan/temperature_$i.png \
+-l 65 -u 80 \
 -w 400 -h 200 -a PNG --slope-mode --start -$i --end now \
 --title "Temperature - $i - All °F" --watermark "`date`" --vertical-label "Temperature (F)" \
 DEF:Temperature=/home/evan/temp.rrd:Temperature:MAX \

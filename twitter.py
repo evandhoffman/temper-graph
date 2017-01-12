@@ -3,9 +3,11 @@
  
 import tweepy, time, sys, datetime, json, os
 
+RRD_PATH="/root/temp-rrd/"
+IMG_PATH="/var/www/html/temperature/"
 
 # Tokens are generated at https://apps.twitter.com/
-with open('/root/temp-rrd/config.json') as cf:
+with open('%s/config.json' % RRD_PATH) as cf:
     config = json.load(cf)
  
 filename = sys.argv[1]

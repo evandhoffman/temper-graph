@@ -4,7 +4,7 @@
 import tweepy, time, sys, datetime, json, commands
 
 
-RRD_PATH="/root/temper-graph/"
+RRD_PATH="/root/temp-rrd/"
 
 # Tokens are generated at https://apps.twitter.com/
 with open("%s/config.json" % RRD_PATH ) as cf:
@@ -14,6 +14,8 @@ with open("%s/config.json" % RRD_PATH ) as cf:
 auth = tweepy.OAuthHandler(config['consumer_key'], config['consumer_secret'])
 auth.set_access_token(config['access_key'], config['access_secret'])
 api = tweepy.API(auth)
+
+RRD_PATH="/home/evan/"
 
 cmd = "rrdtool lastupdate %s/temp.rrd | tail -1" % RRD_PATH
 rrdtemp = commands.getstatusoutput(cmd)

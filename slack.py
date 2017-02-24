@@ -27,10 +27,16 @@ else:
 	t = rrdtemp[1].split(': ')
 	temp = "%s °F" % (t[1])
 
-	if (t[1] < 73):
+	degrees = float(t[1])
+
+	if (degrees < 68):
+		color = "warning"
+		emoji = ":snowman:"
+
+	elif (degrees < 74):
 		color = "good"
 		emoji = ":thumbsup:"
-	elif (t[1] < 77):
+	elif (degrees < 78):
 		color = "warning"
 		emoji = ":beach_with_umbrella:"
 	else: 

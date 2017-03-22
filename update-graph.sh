@@ -9,7 +9,7 @@ COLOR_MAX="#ff0000cc"
 IMG_PATH="/home/evan/"
 RRD_PATH="/home/evan"
 
-for i in 1h 3h 6h 12h 24h 3d 7d ; do
+for i in 1h 3h 6h 12h 24h 3d 7d 30d 90d 180d; do
 
 rrdtool graph $IMG_PATH/temperature_$i.png \
 -l 65 -u 80 \

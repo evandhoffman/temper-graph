@@ -1,5 +1,5 @@
 # temper-graph
-Scripts to record and graph the ambient temperature as read from a TempER USB monitor - http://amzn.to/2iob1ca
+Scripts to record and graph the ambient temperature as read from a TempER USB monitor - http://amzn.to/2iob1ca (OEM is RDing - page here: http://www.pcsensor.com/usb-thermometers/gold-temper.html).
 
 # Usage
 

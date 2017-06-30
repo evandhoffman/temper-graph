@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python/
 # -*- coding: utf-8 -*-
  
 import slacker, time, sys, datetime, json, ntpath, os.path, commands
@@ -28,8 +28,9 @@ else:
 	temp = "%s °F" % (t[1])
 
 	degrees = float(t[1])
+	degrees_c = (degrees - 32 ) * (5.0 / 9.0)
 
-	if (degrees < 68):
+	if (degrees < 69):
 		color = "warning"
 		emoji = ":snowman:"
 
@@ -43,7 +44,7 @@ else:
 		color = "danger"
 		emoji = ":skull_and_crossbones:"
 
-	a = { "fallback":temp, "color": color, "text":temp+ " " + emoji }
+	a = { "fallback":temp, "color": color, "text":temp+ " /  " + "%.2f °C" % degrees_c + " "  + emoji }
 	
 
 	slack.chat.post_message(channel='#eh_tempbot', username='TempBot', attachments=[a], text="")

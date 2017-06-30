@@ -21,10 +21,12 @@ cmd = "rrdtool lastupdate %s/temp.rrd | tail -1" % RRD_PATH
 rrdtemp = commands.getstatusoutput(cmd)
 
 t = rrdtemp[1].split(': ')
-temp = "%s F" % (t[1])
+temp = "%s °F" % (t[1])
+temp_c = (float(t[1]) - 32) * (5.0/9.0)
+temp_c = "%.2f °C" % temp_c
 
 try:
-	result = api.update_status(status=temp)
+	result = api.update_status(status="%s / %s" % (temp, temp_c))
 	#print result
 except tweepy.TweepError as e:
 	print "%s - %s" % (temp, e.message[0])

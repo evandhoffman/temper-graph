@@ -1,4 +1,4 @@
-#!/usr/bin/env python/
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
  
 import slacker, time, sys, datetime, json, ntpath, os.path, commands

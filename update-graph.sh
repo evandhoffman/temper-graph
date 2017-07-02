@@ -7,7 +7,7 @@ COLOR_MIN="#58faf4cc"
 COLOR_MAX="#ff0000cc"
 
 IMG_PATH="/var/www/html/temperature/"
-RRD_PATH="/root/temper-graph/"
+RRD_PATH="/opt/temper-graph/"
 
 for i in 1h 3h 6h 12h 24h 3d 7d 30d 90d 1y; do
 

@@ -3,7 +3,7 @@
  
 import tweepy, time, sys, datetime, json, os
 
-RRD_PATH="/root/temper-graph/"
+RRD_PATH="/opt/temper-graph/"
 IMG_PATH="/var/www/html/temperature/"
 
 # Tokens are generated at https://apps.twitter.com/

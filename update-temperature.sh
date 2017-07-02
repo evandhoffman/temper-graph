@@ -1,7 +1,7 @@
 #!/bin/bash
 
 COMMAND="/usr/bin/temperv14 -f"
-RRDFILE="/root/temper-graph/temp.rrd"
+RRDFILE="/opt/temper-graph/temp.rrd"
 
 n=0
 until [ $n -ge 5 ]

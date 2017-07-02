@@ -6,13 +6,12 @@ COLOR_TEMP="#51009933#00519933"
 COLOR_MIN="#58faf4cc"
 COLOR_MAX="#ff0000cc"
 
-IMG_PATH="/home/evan/"
-RRD_PATH="/home/evan"
+IMG_PATH="/var/www/html/temperature/"
+RRD_PATH="/root/temper-graph/"
 
-for i in 1h 3h 6h 12h 24h 3d 7d 30d 90d 180d; do
+for i in 1h 3h 6h 12h 24h 3d 7d 30d 90d 1y; do
 
 rrdtool graph $IMG_PATH/temperature_$i.png \
--l 65 -u 80 \
 -w 400 -h 200 -a PNG --slope-mode --start -$i --end now \
 --title "Temperature - $i - All °F" --watermark "`date`" --vertical-label "Temperature (F)" \
 DEF:Temperature=$RRD_PATH/temp.rrd:Temperature:MAX \

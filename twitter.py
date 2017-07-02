@@ -3,7 +3,7 @@
  
 import tweepy, time, sys, datetime, json, os
 
-RRD_PATH="/root/temp-rrd/"
+RRD_PATH="/root/temper-graph/"
 IMG_PATH="/var/www/html/temperature/"
 
 # Tokens are generated at https://apps.twitter.com/
@@ -18,5 +18,11 @@ auth.set_access_token(config['access_key'], config['access_secret'])
 api = tweepy.API(auth)
 
 message = "%s @ %s" % (os.path.basename(filename), '{:%Y-%m-%d %H:%M:%S}'.format(datetime.datetime.now()))
- 
-api.update_with_media(filename,  message)
+
+
+if (filename.endswith('png')): 
+	api.update_with_media(filename,  message)
+
+if(filename.endswith('mp4')):
+	media = api.upload_chunked(filename)
+	api.update_status(status=message, media_ids=[media.media_id])

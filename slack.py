@@ -5,7 +5,7 @@ import slacker, time, sys, datetime, json, ntpath, os.path, commands
 
 
 # Tokens are generated at https://apps.twitter.com/
-with open('/root/temp-rrd/config.json') as cf:
+with open('/opt/temper-graph/config.json') as cf:
     config = json.load(cf)
 
 slack = slacker.Slacker(config['slack_api_key'])
@@ -19,7 +19,7 @@ if (os.path.isfile(filename)):
 
 	print response
 else:
-	RRD_PATH="/home/evan/"
+	RRD_PATH="/opt/temper-graph/"
 
 	cmd = "rrdtool lastupdate %s/temp.rrd | tail -1" % RRD_PATH
 	rrdtemp = commands.getstatusoutput(cmd)

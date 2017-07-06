@@ -1,7 +1,7 @@
 #!/bin/bash
 
 COMMAND="/usr/bin/temperv14 -f"
-RRDFILE="/home/evan/temp.rrd"
+RRDFILE="/opt/temper-graph/temp.rrd"
 
 n=0
 until [ $n -ge 5 ]
@@ -11,4 +11,5 @@ do
 	sleep 1
 done
 
+logger -t usb_temp Current temperature is $TEMP
 rrdtool update $RRDFILE --template Temperature N:$TEMP

@@ -9,7 +9,7 @@ COLOR_MAX="#ff0000cc"
 IMG_PATH="/var/www/html/temperature/"
 RRD_PATH="/opt/temper-graph/"
 
-for i in 1h 3h 6h 12h 24h 3d 7d 30d 90d 1y; do
+for i in 1h 3h 6h 8h 9h 12h 24h 3d 7d 30d 90d 6m 1y; do
 
 rrdtool graph $IMG_PATH/temperature_$i.png \
 -l 65 -u 80 \

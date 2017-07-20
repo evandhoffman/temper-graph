@@ -1,6 +1,10 @@
 # temper-graph
 Scripts to record and graph the ambient temperature as read from a TempER USB monitor - http://amzn.to/2iob1ca (OEM is RDing - page here: http://www.pcsensor.com/usb-thermometers/gold-temper.html).
 
+# Example Graph
+
+!(12 hour chart)[https://raw.githubusercontent.com/evandhoffman/temper-graph/master/img/example.png]
+
 # Usage
 
 **Note**: to use Twitter or Slack you'll need to get authentication tokens/API keys.  I store them in `config.json` to keep them out of the scripts themselves.

@@ -3,7 +3,7 @@ Scripts to record and graph the ambient temperature as read from a TempER USB mo
 
 # Example Graph
 
-!(12 hour chart)[https://raw.githubusercontent.com/evandhoffman/temper-graph/master/img/example.png]
+![12 hour chart](https://raw.githubusercontent.com/evandhoffman/temper-graph/master/img/example.png)
 
 # Usage
 

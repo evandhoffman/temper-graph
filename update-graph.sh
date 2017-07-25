@@ -2,7 +2,7 @@
 
 COLOR_MOVING_AVG="#00ff00ff"
 COLOR_AVG="#00ff00ff"
-COLOR_TEMP="#51009933#00519933"
+COLOR_TEMP="#005199"
 COLOR_MIN="#58faf4cc"
 COLOR_MAX="#ff0000cc"
 
@@ -20,7 +20,18 @@ VDEF:last=Temperature,LAST \
 VDEF:max=Temperature,MAXIMUM \
 VDEF:min=Temperature,MINIMUM \
 VDEF:avg1=Temperature,AVERAGE \
-AREA:Temperature$COLOR_TEMP:"Temp" \
+CDEF:t=Temperature \
+CDEF:ccold=t,0,61.99,LIMIT \
+CDEF:ccool=t,62,67.99,LIMIT \
+CDEF:ccomfy=t,68,74.99,LIMIT \
+CDEF:cwarm=t,75,79.99,LIMIT \
+CDEF:chot=t,80,150,LIMIT \
+AREA:ccold#0032ff66:"Cold" \
+AREA:ccool#00fff466:"Cool" \
+AREA:ccomfy#3eff0066:"Comfy" \
+AREA:cwarm#ffdc0066:"Warm" \
+AREA:chot#ff3c0066:"Hot" \
+LINE1:Temperature$COLOR_TEMP:"Temp" \
 GPRINT:last:"%6.2lf%s°F\\n" \
 LINE1:Temperature#0000ffcc:"" \
 COMMENT:"\\n" \
@@ -34,7 +45,6 @@ COMMENT:"\\n" \
 \
 HRULE:max$COLOR_MAX:"Max" \
 GPRINT:max:"%6.2lf%s°F" \
-COMMENT:"\\n" \
-LINE2:avg$COLOR_MOVING_AVG:"30-minute Average\\n" 
+COMMENT:"\\n" 
 
 done

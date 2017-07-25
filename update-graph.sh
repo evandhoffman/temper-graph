@@ -3,13 +3,13 @@
 COLOR_MOVING_AVG="#00ff00ff"
 COLOR_AVG="#00ff00ff"
 COLOR_TEMP="#005199"
-COLOR_MIN="#58faf4cc"
-COLOR_MAX="#ff0000cc"
+COLOR_MIN="#58faf499"
+COLOR_MAX="#ff000099"
 
 IMG_PATH="/var/www/html/temperature/"
 RRD_PATH="/opt/temper-graph/"
 
-for i in 1h 3h 6h 12h 24h 3d 7d 30d 90d 1y; do
+for i in 1h 3h 6h 8h 9h 12h 24h 3d 7d 30d 90d 180d 1y; do
 
 rrdtool graph $IMG_PATH/temperature_$i.png \
 -w 500 -h 300 -a PNG --slope-mode --start -$i --end now \
@@ -23,15 +23,14 @@ VDEF:avg1=Temperature,AVERAGE \
 CDEF:t=Temperature \
 CDEF:ccold=t,0,61.99,LIMIT \
 CDEF:ccool=t,62,67.99,LIMIT \
-CDEF:ccomfy=t,68,74.99,LIMIT \
-CDEF:cwarm=t,75,79.99,LIMIT \
+CDEF:ccomfy=t,68,75.99,LIMIT \
+CDEF:cwarm=t,76,79.99,LIMIT \
 CDEF:chot=t,80,150,LIMIT \
 AREA:ccold#0032ff66:"Cold" \
 AREA:ccool#00fff466:"Cool" \
 AREA:ccomfy#3eff0066:"Comfy" \
 AREA:cwarm#ffdc0066:"Warm" \
 AREA:chot#ff3c0066:"Hot" \
-LINE1:Temperature$COLOR_TEMP:"Temp" \
 GPRINT:last:"%6.2lf%s°F\\n" \
 LINE1:Temperature#0000ffcc:"" \
 COMMENT:"\\n" \
@@ -45,6 +44,7 @@ COMMENT:"\\n" \
 \
 HRULE:max$COLOR_MAX:"Max" \
 GPRINT:max:"%6.2lf%s°F" \
-COMMENT:"\\n" 
+COMMENT:"\\n" \
+LINE1:Temperature$COLOR_TEMP:"Temp" 
 
 done

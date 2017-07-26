@@ -12,7 +12,7 @@ RRD_PATH="/opt/temper-graph/"
 for i in 1h 3h 6h 8h 9h 12h 24h 3d 7d 30d 90d 180d 1y; do
 
 rrdtool graph $IMG_PATH/temperature_$i.png \
--w 500 -h 300 -a PNG --slope-mode --start -$i --end now \
+-w 720 -h 300 -a PNG --slope-mode --start -$i --end now \
 --title "Temperature - $i - All °F" --watermark "`date`" --vertical-label "Temperature (F)" \
 DEF:Temperature=$RRD_PATH/temp.rrd:Temperature:MAX \
 CDEF:avg=Temperature,1800,TRENDNAN \
@@ -22,10 +22,10 @@ VDEF:min=Temperature,MINIMUM \
 VDEF:avg1=Temperature,AVERAGE \
 CDEF:t=Temperature \
 CDEF:ccold=t,0,61.99,LIMIT \
-CDEF:ccool=t,62,67.99,LIMIT \
-CDEF:ccomfy=t,68,75.99,LIMIT \
-CDEF:cwarm=t,76,79.99,LIMIT \
-CDEF:chot=t,80,150,LIMIT \
+CDEF:ccool=t,62,69.99,LIMIT \
+CDEF:ccomfy=t,70,76.99,LIMIT \
+CDEF:cwarm=t,77,80.99,LIMIT \
+CDEF:chot=t,81,150,LIMIT \
 AREA:ccold#0032ff66:"Cold" \
 AREA:ccool#00fff466:"Cool" \
 AREA:ccomfy#3eff0066:"Comfy" \
